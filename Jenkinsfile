@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.9'
-        }
-    }
+    agent any
     
     environment {
         DOCKER_REGISTRY = 'mydockerregistry.com'
@@ -14,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'python app.py'
+                sh 'python3 app.py'
             }
         }
         
