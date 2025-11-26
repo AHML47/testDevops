@@ -22,14 +22,6 @@ pipeline {
             }
         }
         
-        stage('Push to Docker Registry') {
-            steps {
-                script {
-                    docker.withRegistry("https://${DOCKER_REGISTRY}", 'docker-credentials') {
-                        docker.image("${IMAGE_NAME}:${BUILD_NUMBER}").push()
-                    }
-                }
-            }
-        }
+        
     }
 }
